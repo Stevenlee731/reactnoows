@@ -22,3 +22,27 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.category-column {
+  padding: 1px !important;
+}
+
+.category-box {
+  border-radius: 3%;
+  height: 15rem;
+  background-color: #6bcbcb;
+  color: white;
+  transition: 1s;
+}
+
+.category-box:hover {
+  background-color: #15a2a2;
+  transition: 1s;
+  transform: scale(1.01);
+}
+
+.aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

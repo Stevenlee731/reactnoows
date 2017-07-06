@@ -12,7 +12,6 @@ import {loadCategoriesSuccess} from './actions/newsActions'
 const store = configureStore()
 store.dispatch(loadSources())
 store.dispatch(loadCategoriesSuccess())
-console.log(store.getState())
 
 ReactDOM.render(
   <Provider store={store}>

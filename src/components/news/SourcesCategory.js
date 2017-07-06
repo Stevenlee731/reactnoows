@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
-import {Row, Col, Card, CardTitle} from 'react-materialize'
-import newsImg from '../../assets/img/news-sources.jpg'
+import React from 'react';
+import {Col} from 'react-materialize'
 
 const SourcesCategory = ({categories, onClick}) => {
     return (

@@ -2,11 +2,14 @@ import React, {Component} from 'react';
 import SourcesList from './SourcesList'
 import Header from '../common/Header'
 import PropTypes from 'prop-types'
-import {Row, Col, Card, CardTitle} from 'react-materialize'
+import {Row} from 'react-materialize'
 import {connect} from 'react-redux'
 import * as newsActions from '../../actions/newsActions'
 import {bindActionCreators} from 'redux'
 import SourcesCategory from './SourcesCategory'
+import {
+  withRouter
+} from 'react-router-dom'
 
 class SourcesPage extends Component {
   constructor(props, context) {
@@ -39,6 +42,7 @@ class SourcesPage extends Component {
   handleSource(event) {
     const value = event
     console.log('value', event)
+    this.props.history.push(`/source/${value}`);
     this.props.actions.loadArticles(value)
   }
 
@@ -83,4 +87,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SourcesPage);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SourcesPage));

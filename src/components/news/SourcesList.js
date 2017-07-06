@@ -6,18 +6,19 @@ const SourceItem = ({source}) => {
   <Col s={4}>
     <Card header={<CardTitle reveal image={"img/office.jpg"} waves='light'/>}
         title={source.name}
-        reveal={<p>{source.description}</p>}>
+        reveal={<p>{source.descrip}</p>}>
         <p><a href="www.google.com">This is a link</a></p>
     </Card>
   </Col>
   )
 }
 
-const SourcesList = ({sources}) => {
-  console.log(sources)
+const SourcesList = ({sources, category}) => {
+  const filteredSources = sources.filter(source => source.category === category)
+  console.log(filteredSources)
   return (
       <Row>
-        {sources.map(source =>
+        {filteredSources.map((source, category) =>
           <SourceItem key={source.id} source={source} />
         )}
       </Row>

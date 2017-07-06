@@ -15,21 +15,28 @@ class SourcesPage extends Component {
     this.state = {
       title: 'News Sources',
       subTitle: 'Choose from these curated News Sources',
-      category: false
+      isCategoryOpen: false,
+      activeCategory: null
     }
 
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick(event) {
-    console.log(event.target)
-    // this.setState(() => {
-    //   return { category: true }
-    // })
+  handleClick(event, data) {
+    const value = event.target.textContent
+    this.setState(() => {
+      return (
+        {
+          isCategoryOpen: true,
+          activeCategory: value,
+          title: value
+        }
+      )
+    })
   }
 
     render() {
-      const category = this.state.category
+      const category = this.state.isCategoryOpen
         return (
           <div>
             <Header
@@ -39,7 +46,7 @@ class SourcesPage extends Component {
             />
             <Row>
               {!category && <SourcesCategory categories={this.props.categories} onClick={this.handleClick}/>}
-              {category && <SourcesList sources={this.props.sources}/>}
+              {category && <SourcesList category={this.state.activeCategory} sources={this.props.sources}/>}
             </Row>
           </div>
         );

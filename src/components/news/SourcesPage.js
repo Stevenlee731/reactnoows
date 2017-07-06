@@ -20,6 +20,7 @@ class SourcesPage extends Component {
     }
 
     this.handleClick = this.handleClick.bind(this)
+    this.handleSource = this.handleSource.bind(this)
   }
 
   handleClick(event, data) {
@@ -35,6 +36,11 @@ class SourcesPage extends Component {
     })
   }
 
+  handleSource(event, data) {
+    const value = event.target.textContent
+    console.log('articles', value)
+  }
+
     render() {
       const category = this.state.isCategoryOpen
         return (
@@ -46,7 +52,7 @@ class SourcesPage extends Component {
             />
             <Row>
               {!category && <SourcesCategory categories={this.props.categories} onClick={this.handleClick}/>}
-              {category && <SourcesList category={this.state.activeCategory} sources={this.props.sources}/>}
+              {category && <SourcesList category={this.state.activeCategory} onClick={this.handleSource} sources={this.props.sources}/>}
             </Row>
           </div>
         );

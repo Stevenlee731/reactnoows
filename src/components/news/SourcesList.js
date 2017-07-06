@@ -1,25 +1,23 @@
 import React from 'react';
 import {Row, Col, Card, CardTitle} from 'react-materialize'
 
-const SourceItem = ({source}) => {
+const SourceItem = ({source, onClick}) => {
   return (
-  <Col s={4}>
-    <Card header={<CardTitle reveal image={"img/office.jpg"} waves='light'/>}
-        title={source.name}
-        reveal={<p>{source.descrip}</p>}>
-        <p><a href="www.google.com">This is a link</a></p>
-    </Card>
-  </Col>
+    <Col m={4} s={6} className='category-column'>
+      <div onClick={onClick} value={source.id} className='category-box aligner'>
+        {source.name}
+      </div>
+    </Col>
   )
 }
 
-const SourcesList = ({sources, category}) => {
+const SourcesList = ({sources, category, onClick}) => {
   const filteredSources = sources.filter(source => source.category === category)
   console.log(filteredSources)
   return (
       <Row>
-        {filteredSources.map((source, category) =>
-          <SourceItem key={source.id} source={source} />
+        {filteredSources.map((source) =>
+          <SourceItem onClick={onClick} key={source.id} source={source} />
         )}
       </Row>
   )

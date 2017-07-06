@@ -1,10 +1,10 @@
 import * as types from '../actions/actionTypes';
 import initialState from './initialState';
 
-export default function categories(state = initialState.categories, action) {
+export default function articles(state = initialState.articles, action) {
   switch (action.type) {
-    case types.LOAD_CATEGORIES_SUCCESS:
-      return state
+    case types.LOAD_ARTICLES_SUCCESS:
+      return action.articles;
     default:
       return state;
   }

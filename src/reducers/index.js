@@ -3,11 +3,13 @@ import { combineReducers } from 'redux';
 import sources from './sourcesReducer'
 import categories from './categoriesReducer'
 import articles from './articlesReducer'
+import ajaxCallsInProgress from './ajaxStatusReducer'
 
 const rootReducer = combineReducers({
   sources: sources,
   categories,
-  articles
+  articles,
+  ajaxCallsInProgress
 });
 
 export default rootReducer;

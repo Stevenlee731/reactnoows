@@ -12,7 +12,6 @@ const Api = {
     const params = "articles?source=" + source + "&apiKey=" + id
     return axios.get(`https://newsapi.org/v1/${params}`)
       .then(response => {
-        console.log(response.data.articles)
         return response.data.articles
       })
       .catch(handleError)

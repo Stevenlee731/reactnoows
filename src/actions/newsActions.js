@@ -1,5 +1,6 @@
 import Api from '../api/newsApi'
 import * as types from './actionTypes'
+import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
 
 export function loadSourcesSuccess(sources) {
   return {type: types.LOAD_SOURCES_SUCCESS, sources};
@@ -15,7 +16,7 @@ export function loadCategoriesSuccess() {
 
 export function loadSources() {
   return function (dispatch) {
-    // dispatch(beginAjaxCall());
+    dispatch(beginAjaxCall());
     return Api.getSources().then(response => {
       dispatch(loadSourcesSuccess(response));
     }).catch(error => {
@@ -26,10 +27,11 @@ export function loadSources() {
 
 export function loadArticles(source) {
   return function (dispatch) {
-    // dispatch(beginAjaxCall());
+    dispatch(beginAjaxCall());
     return Api.getArticles(source).then(response => {
       dispatch(loadArticlesSuccess(response));
     }).catch(error => {
+      dispatch(ajaxCallError(error))
       throw(error);
     });
   };

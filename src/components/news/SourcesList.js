@@ -11,13 +11,13 @@ const SourceItem = ({source, onClick}) => {
   )
 }
 
-const SourcesList = ({sources, category, onClick}) => {
+const SourcesList = ({sources, category, handleNewSource}) => {
   const filteredSources = sources.filter(source => source.category === category)
   console.log(filteredSources)
   return (
       <Row>
         {filteredSources.map((source) =>
-          <SourceItem onClick={onClick} key={source.id} source={source} />
+          <SourceItem onClick={() => {handleNewSource(source.id)}} key={source.id} source={source} />
         )}
       </Row>
   )

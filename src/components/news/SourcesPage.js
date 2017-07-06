@@ -36,9 +36,10 @@ class SourcesPage extends Component {
     })
   }
 
-  handleSource(event, data) {
-    const value = event.target.textContent
-    console.log('articles', value)
+  handleSource(event) {
+    const value = event
+    console.log('value', event)
+    this.props.actions.loadArticles(value)
   }
 
     render() {
@@ -52,7 +53,12 @@ class SourcesPage extends Component {
             />
             <Row>
               {!category && <SourcesCategory categories={this.props.categories} onClick={this.handleClick}/>}
-              {category && <SourcesList category={this.state.activeCategory} onClick={this.handleSource} sources={this.props.sources}/>}
+              {category &&
+                <SourcesList
+                  category={this.state.activeCategory}
+                  handleNewSource={this.handleSource}
+                  sources={this.props.sources}
+                />}
             </Row>
           </div>
         );

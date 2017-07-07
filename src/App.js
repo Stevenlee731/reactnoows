@@ -31,18 +31,18 @@ class App extends Component {
                 <NavLink className="brand-logo" to="/" >React News</NavLink>
                 <ul className="right hide-on-med-and-down">
                   <li className="nav-item">
-                    <NavLink to="/sources" >categories</NavLink>
+                    <NavLink className="nav-footer" to="/sources" >categories</NavLink>
                   </li>
                   <li style={navPadding} className="nav-item">
-                    <NavLink to="/about" >about</NavLink>
+                    <NavLink className="nav-footer" to="/about" >about</NavLink>
                   </li>
                 </ul>
                 <ul id="nav-mobile" className="side-nav" style={navItemStyle}>
                   <li className="nav-item">
-                    <NavLink to="/sources" >categories</NavLink>
+                    <NavLink className="nav-footer" to="/sources" >categories</NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink to="/about" >about</NavLink>
+                    <NavLink className="nav-footer" to="/about" >about</NavLink>
                   </li>
                 </ul>
                 <a className="button-collapse" href="#" data-activates="nav-mobile">

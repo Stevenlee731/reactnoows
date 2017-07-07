@@ -41,9 +41,7 @@ class SourcesPage extends Component {
 
   handleSource(event) {
     const value = event
-    console.log('value', event)
     this.props.history.push(`/source/${value}`);
-    this.props.actions.loadArticles(value)
   }
 
     render() {

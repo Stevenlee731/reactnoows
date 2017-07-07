@@ -4,7 +4,8 @@ import {connect} from 'react-redux'
 import * as newsActions from '../../actions/newsActions'
 import {bindActionCreators} from 'redux'
 import Header from '../common/Header'
-import {Row, Preloader, Col, Card, CardTitle} from 'react-materialize'
+import {Button, Icon, Row, Preloader, Col, Card, CardTitle} from 'react-materialize'
+import placeholderImg from '../../assets/img/dark-triangles.png'
 
 const imageStyle = {
   width: '100%'
@@ -18,60 +19,72 @@ class ArticlePage extends Component {
       source: this.props.match.params.id,
       title: this.props.match.params.id
     }
+
+    this.renderTitle = this.renderTitle.bind(this)
   }
 
   componentDidMount() {
-    this.props.actions.loadArticles(this.state.source).then(() => {
-      console.log('finished')
-    })
-  //   const title = sources.filter(source => {
-  //     if (source.id === params) {
-  //       console.log(source.name)
-  //       return source
-  //     }
-  //   })
-  //
-  //   console.log(title[0].name)
-  //   this.setState(() => {
-  //     return {
-  //       title: title[0].name
-  //     }
-  //   })
-  // })
+    this.props.actions.loadArticles(this.state.source)
   }
 
 
+  renderTitle(sources) {
+    const params = this.state.title
+    const title = sources.filter(source => {
+      if (source.id === params) {
+        console.log(source.name)
+        return source.name
+      }
+    })
+  }
+
   render() {
     const articles = this.props.articles
-    console.log('articles', articles)
+    const imageUrl = url => {
+      if (!url) {
+        return placeholderImg
+      }
+      else {
+        return url
+      }
+    }
       return (
         <div>
-          <Header
-            title={this.state.title}
-            subTitle={this.state.subTitle}
-            backgroundImage={this.state.backgroundImage}
-          />
           {this.props.loading &&
-            <Row>
+            <Row className="preloader">
               <Col s={12}>
                 <Preloader size='big'/>
               </Col>
             </Row>
           }
           {!this.props.loading &&
-            <Row>
-              {articles.map((article, i) =>
-                <Col m={4} s={6} key={i} value={i} className="article">
-                  <div value={article.name}>
-                    <div><img style={imageStyle} src={article.urlToImage}/></div>
-                    <div><h5 className="title">{article.title}</h5></div>
-                    <div className="description">{article.description}</div>
-                    <div className="link"><a target="_new" href={article.url}>view article</a></div>
-
-                  </div>
-                </Col>
-              )}
-            </Row>
+            <div>
+              <Header
+                title={this.state.title}
+                subTitle={this.state.subTitle}
+                backgroundImage={this.state.backgroundImage}
+                />
+              <Row>
+                {articles.map((article, i) =>
+                  <Col m={4} s={12} key={i} value={i} className="article">
+                    <div className="border">
+                      <div>
+                        <img style={imageStyle} src={imageUrl(article.urlToImage)}/>
+                      </div>
+                      <div className="border-box">
+                        <div className="content">
+                          <div className="flex">
+                            <div className="title">{article.title}</div>
+                            <div className="description">{article.description}</div>
+                          </div>
+                        </div>
+                        <div className="link"><a target="_new" href={article.url}>view article</a></div>
+                      </div>
+                    </div>
+                  </Col>
+                )}
+              </Row>
+            </div>
           }
 
         </div>

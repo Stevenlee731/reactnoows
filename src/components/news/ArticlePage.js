@@ -62,9 +62,8 @@ class ArticlePage extends Component {
               <Header
                 title={this.state.title}
                 subTitle={this.state.subTitle}
-                backgroundImage={this.state.backgroundImage}
                 />
-              <Row>
+              <Row className='row-articles'>
                 {articles.map((article, i) =>
                   <Col m={4} s={12} key={i} value={i} className="article">
                     <div className="border">

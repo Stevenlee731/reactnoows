@@ -8,7 +8,7 @@ const SourcesCategory = ({categories, onClick}) => {
           <Col m={4} s={6} key={i} value={i} className='category-column'>
             <div onClick={onClick} value={category.category} className='category-box aligner'>
               <div>
-                <h4>{category.category}</h4>
+                <h5>{category.category}</h5>
               </div>
             </div>
           </Col>

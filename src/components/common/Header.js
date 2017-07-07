@@ -4,14 +4,25 @@ import {Row, Col} from 'react-materialize'
 const Header = props => {
   const divStyle = {
     textAlign: 'left',
-    borderBottom: '1px solid #e5e5e5'
+  }
+
+  const pStyle = {
+    paddingLeft: '4rem',
+    color: 'white',
+  }
+
+  const headerStyle = {
+    paddingLeft: '3rem',
+    fontWeight: 'bold',
+    color: 'white',
+    borderLeft: '10px solid white'
   }
 
   return (
-    <Row>
+    <Row className='row-header'>
       <Col style={divStyle} s={12}>
-        <h1>{props.title}</h1>
-        <p>{props.subTitle}</p>
+        <h1 style={headerStyle}>{props.title}</h1>
+        <p style={pStyle}>{props.subTitle}</p>
       </Col>
     </Row>
   );

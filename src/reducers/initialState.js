@@ -18,15 +18,6 @@ export default {
       category: "music"
     },
     {
-      category: "politics"
-    },
-    {
-      category: "science"
-    },
-    {
-      category: "sports"
-    },
-    {
       category: "technology"
     }
   ],

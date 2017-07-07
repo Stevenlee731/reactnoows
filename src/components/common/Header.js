@@ -1,10 +1,10 @@
 import React from 'react';
 import {Row, Col} from 'react-materialize'
 
-
 const Header = props => {
   const divStyle = {
-    textAlign: 'center',
+    textAlign: 'left',
+    borderBottom: '1px solid #e5e5e5'
   }
 
   return (

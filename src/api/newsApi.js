@@ -9,10 +9,10 @@ const handleError = error => {
 
 const Api = {
   getArticles: function (source) {
-    const params = "?articles" + source + "&apiKey=" + id
+    const params = "articles?source=" + source + "&apiKey=" + id
     return axios.get(`https://newsapi.org/v1/${params}`)
       .then(response => {
-        console.log(JSON.parse(response))
+        return response.data.articles
       })
       .catch(handleError)
   },

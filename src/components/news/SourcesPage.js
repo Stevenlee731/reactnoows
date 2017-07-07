@@ -2,11 +2,14 @@ import React, {Component} from 'react';
 import SourcesList from './SourcesList'
 import Header from '../common/Header'
 import PropTypes from 'prop-types'
-import {Row, Col, Card, CardTitle} from 'react-materialize'
+import {Row} from 'react-materialize'
 import {connect} from 'react-redux'
 import * as newsActions from '../../actions/newsActions'
 import {bindActionCreators} from 'redux'
 import SourcesCategory from './SourcesCategory'
+import {
+  withRouter
+} from 'react-router-dom'
 
 class SourcesPage extends Component {
   constructor(props, context) {
@@ -20,6 +23,7 @@ class SourcesPage extends Component {
     }
 
     this.handleClick = this.handleClick.bind(this)
+    this.handleSource = this.handleSource.bind(this)
   }
 
   handleClick(event, data) {
@@ -35,6 +39,11 @@ class SourcesPage extends Component {
     })
   }
 
+  handleSource(event) {
+    const value = event
+    this.props.history.push(`/source/${value}`);
+  }
+
     render() {
       const category = this.state.isCategoryOpen
         return (
@@ -46,7 +55,12 @@ class SourcesPage extends Component {
             />
             <Row>
               {!category && <SourcesCategory categories={this.props.categories} onClick={this.handleClick}/>}
-              {category && <SourcesList category={this.state.activeCategory} sources={this.props.sources}/>}
+              {category &&
+                <SourcesList
+                  category={this.state.activeCategory}
+                  handleNewSource={this.handleSource}
+                  sources={this.props.sources}
+                />}
             </Row>
           </div>
         );
@@ -71,4 +85,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SourcesPage);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SourcesPage));

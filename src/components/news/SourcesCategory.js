@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
-import {Row, Col, Card, CardTitle} from 'react-materialize'
-import newsImg from '../../assets/img/news-sources.jpg'
+import React from 'react';
+import {Col} from 'react-materialize'
 
 const SourcesCategory = ({categories, onClick}) => {
     return (
@@ -8,7 +7,9 @@ const SourcesCategory = ({categories, onClick}) => {
         {categories.map((category, i) =>
           <Col m={4} s={6} key={i} value={i} className='category-column'>
             <div onClick={onClick} value={category.category} className='category-box aligner'>
-              {category.category}
+              <div>
+                <h4>{category.category}</h4>
+              </div>
             </div>
           </Col>
         )}

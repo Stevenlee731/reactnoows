@@ -2,6 +2,19 @@
   text-align: center;
 }
 
+nav {
+  background-color: white;
+  color: #42c693;
+}
+
+.nav-footer {
+  color: #42c693;
+}
+
+footer {
+  background: white;
+}
+
 .row-header {
   background-color: #42c693;
   background-image: url('./assets/img/news-sources.jpg');
@@ -24,6 +37,7 @@
 
 .category-column {
   padding: 1px !important;
+  cursor: pointer;
 }
 
 .category-box {
@@ -80,6 +94,7 @@
   box-sizing: border-box;
   height: 100%;
   background-color: white;
+  cursor: pointer;
 }
 
 .border-box {

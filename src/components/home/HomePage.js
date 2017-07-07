@@ -1,26 +1,23 @@
 import React from 'react';
-import {Row, Col, Card, CardTitle} from 'react-materialize'
-import coverImg from '../../assets/img/reactnoows.jpg'
-
-const divStyle = {
-  textAlign: 'left',
-  backgroundImage: `url(${coverImg})`,
-  backgroundSize: 'cover',
-  height: '70vh',
-}
-
-const hStyle = {
-  fontWeight: 'bold',
-  color: '#5FCF80'
-}
+import {Row} from 'react-materialize'
+import Header from '../common/Header'
+import Popular from './Popular'
 
 class HomePage extends React.Component {
 
     render() {
         return (
+          <div>
+            <div>
+              <Header
+                title='React Noows'
+                subTitle='Your relevant React News Hub'
+                />
+            </div>
             <Row>
-              <div></div>
+              <Popular/>
             </Row>
+          </div>
         );
     }
 }

@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import * as newsActions from '../../actions/newsActions'
 import {bindActionCreators} from 'redux'
 import Header from '../common/Header'
-import {Button, Icon, Row, Preloader, Col, Card, CardTitle} from 'react-materialize'
+import {Row, Preloader, Col} from 'react-materialize'
 import placeholderImg from '../../assets/img/dark-triangles.png'
 
 const imageStyle = {
@@ -17,26 +17,28 @@ class ArticlePage extends Component {
 
     this.state = {
       source: this.props.match.params.id,
-      title: this.props.match.params.id
+      title: this.props.match.params.id,
+      loading: true
     }
 
-    this.renderTitle = this.renderTitle.bind(this)
+    // this.renderTitle = this.renderTitle.bind(this)
   }
 
   componentDidMount() {
     this.props.actions.loadArticles(this.state.source)
+    setTimeout(() => this.setState({ loading: false }), 1500);
   }
 
 
-  renderTitle(sources) {
-    const params = this.state.title
-    const title = sources.filter(source => {
-      if (source.id === params) {
-        console.log(source.name)
-        return source.name
-      }
-    })
-  }
+  // renderTitle(sources) {
+  //   const params = this.state.title
+  //   const title = sources.filter(source => {
+  //     if (source.id === params) {
+  //       console.log(source.name)
+  //       return source.name
+  //     }
+  //   })
+  // }
 
   render() {
     const articles = this.props.articles
@@ -50,14 +52,15 @@ class ArticlePage extends Component {
     }
       return (
         <div>
-          {this.props.loading &&
+          {this.state.loading &&
+
             <Row className="preloader">
               <Col s={12}>
                 <Preloader size='big'/>
               </Col>
             </Row>
           }
-          {!this.props.loading &&
+          {!this.state.loading &&
             <div>
               <Header
                 title={this.state.title}
@@ -68,7 +71,7 @@ class ArticlePage extends Component {
                   <Col m={4} s={12} key={i} value={i} className="article">
                     <div className="border">
                       <div>
-                        <img style={imageStyle} src={imageUrl(article.urlToImage)}/>
+                        <img style={imageStyle} src={imageUrl(article.urlToImage)} alt={article.title}/>
                       </div>
                       <div className="border-box">
                         <div className="content">

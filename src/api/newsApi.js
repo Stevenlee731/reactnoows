@@ -24,6 +24,25 @@ const Api = {
         return sources
       })
       .catch(handleError)
+  },
+  getHomePageArticles: function (first, second, third) {
+    const paramsFirst = "articles?source=" + first + "&sortBy=top&apiKey=" + id
+    const paramsSecond = "articles?source=" + second + "&sortBy=top&apiKey=" + id
+    const paramsThird = "articles?source=" + third + "&sortBy=top&apiKey=" + id
+    return axios.all([
+      axios.get(`https://newsapi.org/v1/${paramsFirst}`),
+      axios.get(`https://newsapi.org/v1/${paramsSecond}`),
+      axios.get(`https://newsapi.org/v1/${paramsThird}`)
+    ])
+    .then(axios.spread((first, second, third) => {
+      const articles = {
+        first: first.data,
+        second: second.data,
+        third: third.data
+      }
+      return articles
+    }))
+    .catch(handleError)
   }
 }
 

@@ -23,6 +23,10 @@
   to { transform: rotate(360deg); }
 }
 
+.cover {
+  background-image: url("./assets/img/reactnoows.jpg");
+}
+
 .category-column {
   padding: 1px !important;
 }

@@ -8,10 +8,11 @@ nav {
 }
 
 .nav-footer {
-  color: #42c693;
+  color: #42c693 !important;
 }
 
 footer {
+  border-top: 1px solid lightgray;
   background: white;
 }
 

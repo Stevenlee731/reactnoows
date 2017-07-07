@@ -53,7 +53,7 @@ class SourcesPage extends Component {
               subTitle={this.state.subTitle}
               backgroundImage={this.state.backgroundImage}
             />
-            <Row>
+          <Row className='row-content'>
               {!category && <SourcesCategory categories={this.props.categories} onClick={this.handleClick}/>}
               {category &&
                 <SourcesList

@@ -5,7 +5,7 @@ const SourceItem = ({source, onClick}) => {
   return (
     <Col m={4} s={6} className='category-column'>
       <div onClick={onClick} value={source.id} className='category-box aligner'>
-        <h4>{source.name}</h4>
+        <h5>{source.name}</h5>
       </div>
     </Col>
   )

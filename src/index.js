@@ -6,11 +6,15 @@ import registerServiceWorker from './registerServiceWorker';
 import {Route, BrowserRouter as Router} from 'react-router-dom';
 import {Provider} from 'react-redux'
 import configureStore from './store/configureStore';
-import {loadSources} from './actions/newsActions'
-import {loadCategoriesSuccess} from './actions/newsActions'
+import {loadSources, loadCategoriesSuccess, loadHomePageArticles} from './actions/newsActions'
+import _ from 'lodash'
+
+const categories = ['polygon', 'bloomberg', 'cnn', 'engadget', 'espn', 'mashable', 'mtv-news', 'techcrunch']
+const shuffled = _.shuffle(categories)
 
 const store = configureStore()
 store.dispatch(loadSources())
+store.dispatch(loadHomePageArticles(shuffled[1], shuffled[2], shuffled[3]))
 store.dispatch(loadCategoriesSuccess())
 
 ReactDOM.render(

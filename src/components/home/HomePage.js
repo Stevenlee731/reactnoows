@@ -1,16 +1,23 @@
 import React from 'react';
-import {Row, Col} from 'react-materialize'
+import {Row} from 'react-materialize'
+import Header from '../common/Header'
+import Popular from './Popular'
 
 class HomePage extends React.Component {
 
     render() {
         return (
+          <div>
+            <div>
+              <Header
+                title='React Noows'
+                subTitle='Your relevant React News Hub'
+                />
+            </div>
             <Row>
-              <Col s={12} className='grid-example'>
-                <h1>React News</h1>
-                <p>Your relevant news hub</p>
-              </Col>
+              <Popular/>
             </Row>
+          </div>
         );
     }
 }

@@ -10,6 +10,10 @@ export function loadArticlesSuccess(articles) {
   return {type: types.LOAD_ARTICLES_SUCCESS, articles};
 }
 
+export function loadHomePageArticlesSuccess(articles) {
+  return {type: types.LOAD_HOMEPAGE_ARTICLES_SUCCESS, articles};
+}
+
 export function loadCategoriesSuccess() {
   return {type: types.LOAD_CATEGORIES_SUCCESS};
 }
@@ -30,6 +34,18 @@ export function loadArticles(source) {
     dispatch(beginAjaxCall());
     return Api.getArticles(source).then(response => {
       dispatch(loadArticlesSuccess(response));
+    }).catch(error => {
+      dispatch(ajaxCallError(error))
+      throw(error);
+    });
+  };
+}
+
+export function loadHomePageArticles(first, second, third) {
+  return function (dispatch) {
+    dispatch(beginAjaxCall());
+    return Api.getHomePageArticles(first, second, third).then(response => {
+      dispatch(loadHomePageArticlesSuccess(response));
     }).catch(error => {
       dispatch(ajaxCallError(error))
       throw(error);

@@ -1,4 +1,5 @@
 export default {
+  homePageArticles: {},
   articles: [],
   sources: [],
   categories: [

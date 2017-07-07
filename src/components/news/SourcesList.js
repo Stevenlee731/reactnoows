@@ -13,7 +13,6 @@ const SourceItem = ({source, onClick}) => {
 
 const SourcesList = ({sources, category, handleNewSource}) => {
   const filteredSources = sources.filter(source => source.category === category)
-  console.log(filteredSources)
   return (
       <Row>
         {filteredSources.map((source) =>

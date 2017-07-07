@@ -9,7 +9,7 @@ class HomePage extends React.Component {
           <div>
             <div>
               <Header
-                title='About React Noows'
+                title='About React News'
                 subTitle='Your relevant React News Hub'
                 />
             </div>

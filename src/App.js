@@ -5,7 +5,6 @@ import HomePage from './components/home/HomePage'
 import SourcesPage from './components/news/SourcesPage'
 import ArticlePage from './components/news/ArticlePage'
 import AboutPage from './components/about/About.js'
-import {Navbar, NavItem} from 'react-materialize'
 import {NavLink} from 'react-router-dom'
 
 const navStyle = {
@@ -29,7 +28,7 @@ class App extends Component {
           <nav style={navStyle}>
             <div className="nav-wrapper">
               <div className="col s12">
-                <NavLink className="brand-logo" to="/" >ReactNoows</NavLink>
+                <NavLink className="brand-logo" to="/" >React News</NavLink>
                 <ul className="right hide-on-med-and-down">
                   <li className="nav-item">
                     <NavLink to="/sources" >categories</NavLink>
@@ -59,6 +58,15 @@ class App extends Component {
           <Route path="/about" component={AboutPage}/>
           <Route path="/source/:id" component={ArticlePage}/>
         </div>
+        <footer className="aligner">
+          <nav>
+            <NavLink className="nav-footer" to="/" >React News</NavLink>
+            {" | "}
+            <NavLink className="nav-footer" to="/sources" >categories</NavLink>
+            {" | "}
+            <NavLink className="nav-footer" to="/about" >about</NavLink>
+          </nav>
+        </footer>
       </div>
     );
   }

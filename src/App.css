@@ -76,7 +76,8 @@ footer {
 
 .article-home {
   margin-top: 2rem !important;
-  height: 40rem;
+  height: 45rem;
+  display: flex;
 }
 
 .about {
@@ -96,13 +97,20 @@ footer {
   height: 100%;
   background-color: white;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.border-image{
+  flex: 1 1 200px;
 }
 
 .border-box {
   box-sizing: border-box !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
+  flex: 2 1 400px;
+  flex-direction: column;
+  display: flex;
 }
 
 .title {
@@ -120,7 +128,6 @@ footer {
 }
 
 .content {
-  position: relative !important;
   flex: 1 1 auto;
   flex-grow: 1;
   flex-shrink: 1;
@@ -128,9 +135,8 @@ footer {
 }
 
 .flex {
-  flex-wrap: wrap;
+  flex-direction: column;
   display: flex !important;
-  justify-content: flex-start !important;
 }
 
 .description {
@@ -143,8 +149,12 @@ footer {
 
 .link {
   display: flex !important;
-  padding-left: 1rem;
-  padding-top: 1rem;
+  padding: 1rem 0 1rem 1rem;
+  justify-content: center;
+}
+
+.btn a {
+  color: white;
 }
 
 .brand-logo {

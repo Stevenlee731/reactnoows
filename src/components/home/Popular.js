@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import * as newsActions from '../../actions/newsActions'
 import {bindActionCreators} from 'redux'
-import {Row, Preloader, Col} from 'react-materialize'
+import {Row, Preloader, Col, Button} from 'react-materialize'
 import placeholderImg from '../../assets/img/dark-triangles.png'
 
 const imageStyle = {
@@ -77,7 +77,7 @@ class Popular extends Component {
                   return (
                     <Col m={6} s={12} key={i} value={i} className="article-home">
                       <div className="border">
-                        <div>
+                        <div className="border-image">
                           <img style={imageStyle} src={imageUrl(article.urlToImage)} alt={article.title}/>
                         </div>
                         <div className="border-box">
@@ -88,7 +88,7 @@ class Popular extends Component {
                               <div className="description">{article.description}</div>
                             </div>
                           </div>
-                          <div className="link"><a target="_new" href={article.url}>view article</a></div>
+                          <div className="link"><Button><a target="_new" href={article.url}>view article</a></Button></div>
                         </div>
                       </div>
                     </Col>
@@ -101,7 +101,7 @@ class Popular extends Component {
                   return (
                     <Col m={6} s={12} key={i} value={i} className="article-home">
                       <div className="border">
-                        <div>
+                        <div className="border-image">
                           <img style={imageStyle} src={imageUrl(article.urlToImage)} alt={article.title}/>
                         </div>
                         <div className="border-box">
@@ -112,7 +112,7 @@ class Popular extends Component {
                               <div className="description">{article.description}</div>
                             </div>
                           </div>
-                          <div className="link"><a target="_new" href={article.url}>view article</a></div>
+                          <div className="link"><Button><a target="_new" href={article.url}>view article</a></Button></div>
                         </div>
                       </div>
                     </Col>
@@ -125,7 +125,7 @@ class Popular extends Component {
                   return (
                     <Col m={6} s={12} key={i} value={i} className="article-home">
                       <div className="border">
-                        <div>
+                        <div className="border-image">
                           <img style={imageStyle} src={imageUrl(article.urlToImage)} alt={article.title}/>
                         </div>
                         <div className="border-box">
@@ -136,7 +136,7 @@ class Popular extends Component {
                               <div className="description">{article.description}</div>
                             </div>
                           </div>
-                          <div className="link"><a target="_new" href={article.url}>view article</a></div>
+                          <div className="link"><Button><a target="_new" href={article.url}>view article</a></Button></div>
                         </div>
                       </div>
                     </Col>

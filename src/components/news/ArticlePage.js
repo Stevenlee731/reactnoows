@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import * as newsActions from '../../actions/newsActions'
 import {bindActionCreators} from 'redux'
 import Header from '../common/Header'
-import {Row, Preloader, Col} from 'react-materialize'
+import {Row, Preloader, Col, Button} from 'react-materialize'
 import placeholderImg from '../../assets/img/dark-triangles.png'
 
 const imageStyle = {
@@ -80,7 +80,7 @@ class ArticlePage extends Component {
                             <div className="description">{article.description}</div>
                           </div>
                         </div>
-                        <div className="link"><a target="_new" href={article.url}>view article</a></div>
+                        <div className="link"><Button><a target="_new" href={article.url}>view article</a></Button></div>
                       </div>
                     </div>
                   </Col>
